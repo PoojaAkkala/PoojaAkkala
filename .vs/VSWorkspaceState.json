@@ -1,0 +1,16 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\Configuration",
+    "\\Configuration\\AutofacModules",
+    "\\Configuration\\AutoMapperProfiles",
+    "\\Controllers",
+    "\\Dto",
+    "\\Filters",
+    "\\Middleware",
+    "\\Repo",
+    "\\Settings"
+  ],
+  "SelectedNode": "\\Startup.cs",
+  "PreviewInSolutionExplorer": false
+}

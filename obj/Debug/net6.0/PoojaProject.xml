@@ -1,0 +1,151 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>PoojaProject</name>
+    </assembly>
+    <members>
+        <member name="T:PoojaProject.Modules.DefaultModule">
+            <summary>
+            Default module for Autofac
+            </summary>
+            <remarks>
+            See: https://github.com/drwatson1/AspNet-Core-REST-Service/wiki#dependency-injection
+            </remarks>
+        </member>
+        <member name="T:PoojaProject.Profiles.DefaultProfile">
+            <summary>
+            Default profile for AutoMapper
+            </summary>
+            <remarks>See: https://github.com/drwatson1/AspNet-Core-REST-Service/wiki#automapper</remarks>
+        </member>
+        <member name="M:PoojaProject.MiddlewareConfig.UseSwaggerWithOptions(Microsoft.AspNetCore.Builder.IApplicationBuilder)">
+            <summary>
+            Use swagger UI and endpoint
+            </summary>
+            <remarks>
+            See: https://github.com/drwatson1/AspNet-Core-REST-Service/wiki#documenting-api
+            </remarks>
+        </member>
+        <member name="M:PoojaProject.SwaggerConfig.AddSwagger(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            Add Swagger middleware
+            </summary>
+            <remarks>
+            See: https://github.com/drwatson1/AspNet-Core-REST-Service/wiki#documenting-api
+            </remarks>
+        </member>
+        <member name="T:PoojaProject.Controllers.FilesController">
+            <summary>
+            An example of a controller to upload files to demonstrate the request size limit setting (https://www.talkingdotnet.com/how-to-increase-file-upload-size-asp-net-core/)
+            </summary>
+        </member>
+        <member name="M:PoojaProject.Controllers.FilesController.Upload(Microsoft.AspNetCore.Http.IFormFile)">
+            <summary>
+            Upload a file
+            </summary>
+            <remarks>
+            Play around with file size. Try to upload a file more 1048576 bytes length
+            </remarks>
+            <param name="file">A file to upload</param>
+        </member>
+        <member name="M:PoojaProject.Controllers.QuestionsController.Get">
+            <summary>
+            Get all products
+            </summary>
+            <response code="200">List of all products</response>
+        </member>
+        <member name="M:PoojaProject.Controllers.QuestionsController.GetById(System.Int32)">
+            <summary>
+            Get a product by id
+            </summary>
+            <param name="id">A product id</param>
+        </member>
+        <member name="T:PoojaProject.Dto.Product">
+            <summary>
+            DTO for reading product (-s)
+            </summary>
+        </member>
+        <member name="P:PoojaProject.Dto.Product.Id">
+            <summary>
+            Product id
+            </summary>
+        </member>
+        <member name="P:PoojaProject.Dto.Product.Name">
+            <summary>
+            Product name
+            </summary>
+            <example>lime</example>
+        </member>
+        <member name="T:PoojaProject.Dto.UpdateProduct">
+            <summary>
+            DTO for creating and updating product
+            </summary>
+        </member>
+        <member name="P:PoojaProject.Dto.UpdateProduct.Name">
+            <summary>
+            Product name
+            </summary>
+        </member>
+        <member name="T:PoojaProject.Filters.CacheControlFilter">
+            <summary>
+            Filter to add header Cache-Control to responses
+            </summary>
+            <remarks>See: https://github.com/drwatson1/AspNet-Core-REST-Service/wiki#cache-control</remarks>
+        </member>
+        <member name="T:PoojaProject.Filters.ValidateModelFilter">
+            <summary>
+            Filter to check is a model valid
+            </summary>
+            <remarks>See: https://github.com/drwatson1/AspNet-Core-REST-Service/wiki#model-validation</remarks>
+        </member>
+        <member name="T:PoojaProject.Middleware.ExceptionMiddleware">
+            <summary>
+            Middleware to handle exceptions.
+            It separates exceptions based on their type and returns different status codes and answers based on it, instead of 500 Internal Server Error code in all cases.
+            In addition, it writes them in the log.
+            </summary>
+            <remarks>
+            There is another way to do this - an exception filter.
+            However, a middleware is a preferred way to achieve this according to the official documentation.
+            To learn more see https://docs.microsoft.com/en-us/aspnet/core/mvc/controllers/filters?view=aspnetcore-2.1#exception-filters
+            
+            See also: https://github.com/drwatson1/AspNet-Core-REST-Service/wiki#unhandled-exceptions-handling
+            </remarks>
+        </member>
+        <member name="T:PoojaProject.Middleware.OptionsVerbMiddleware">
+            <summary>
+            OPTIONS HTTP-method handler
+            </summary>
+            <remarks>
+            See:     https://github.com/drwatson1/AspNet-Core-REST-Service/wiki#cross-origin-resource-sharing-cors-and-preflight-requests
+            </remarks>
+        </member>
+        <member name="M:PoojaProject.Startup.ConfigureContainer(Autofac.ContainerBuilder)">
+            <summary>
+            Configure Autofac DI-container
+            </summary>
+            <param name="builder">Container builder</param>
+            <remarks>
+            ConfigureContainer is where you can register things directly
+            with Autofac. This runs after ConfigureServices so the things
+            here will override registrations made in ConfigureServices.
+            Don't build the container; that gets done for you.
+            
+            See: https://github.com/drwatson1/AspNet-Core-REST-Service/wiki#dependency-injection
+            </remarks>
+        </member>
+        <member name="M:PoojaProject.Startup.ConfigureProductionContainer(Autofac.ContainerBuilder)">
+            <summary>
+            Configure Autofac DI-container for production
+            </summary>
+            <param name="builder">Container builder</param>
+            <remarks>
+            This only gets called if your environment is Production. The
+            default ConfigureContainer won't be automatically called if this
+            one is called.
+            
+            See: https://github.com/drwatson1/AspNet-Core-REST-Service/wiki#dependency-injection
+            </remarks>
+        </member>
+    </members>
+</doc>
